@@ -19,3 +19,24 @@ jobs:
         node-version: 10.16
     - name: see directory
       run: ls
+        - name: Install dependencies
+      run: yarn install
+    - name: Build on MacOS
+      env:
+        ELECTRON: true
+      run: npm i
+    - name: Build Electron
+      env:
+        ELECTRON: true
+      run: npm run electron:build
+    - name: see directory
+      run: ls
+    - name: see directory in electron_dist
+      run: ls ./electron_dist
+    - uses: lucyio/upload-to-release@master
+      with:
+        name: lucyio/electron
+        path: ./electron_dist
+        action: unpublished
+        release_id: 1.0.0
+        release-repo: mizuka-wu/master  
