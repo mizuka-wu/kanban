@@ -16,6 +16,7 @@
     "click-to-edit": "^2.0.1",
     "core-js": "^3.6.5",
     "electron-store": "^6.0.1",
+    "electron-updater": "^4.3.5",
     "element-ui": "^2.14.1",
     "uuid": "^8.3.2",
     "vue": "^2.6.11",
@@ -44,5 +45,6 @@
     "sass-loader": "^10.1.0",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.5",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "__npminstall_done": false
 }
