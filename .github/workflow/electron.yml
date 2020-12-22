@@ -19,7 +19,7 @@ jobs:
         node-version: 10.16
     - name: see directory
       run: ls
-        - name: Install dependencies
+    - name: Install dependencies
       run: yarn install
     - name: Build on MacOS
       env:
