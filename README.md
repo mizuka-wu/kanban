@@ -1,5 +1,7 @@
 # kanban
 
+泳道
+
 ## Project setup
 ```
 npm install
