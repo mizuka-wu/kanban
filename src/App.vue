@@ -45,9 +45,11 @@
         </el-card>
       </transition-group>
     </draggable>
-    <div class="control">
-      <el-button size="mini" @click="addLane">添加泳道</el-button>
-    </div>
+    <el-card class="lane-card add-lane-card" @click.native="addLane">
+      <div slot="header">
+        <div class="lane-name">添加泳道</div>
+      </div>
+    </el-card>
     <video muted autoplay loop />
   </div>
 </template>
@@ -125,6 +127,7 @@ body,
   overflow: auto;
   padding: 8px;
   box-sizing: border-box;
+  display: flex;
   // background:  #eeeeee url(http://api.btstu.cn/sjbz/?lx=dongman) no-repeat fixed top;
 }
 
@@ -132,13 +135,11 @@ body,
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.control {
-  margin-top: 10px;
-}
-
 .lanes-container {
   display: flex;
   width: auto;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 .lane-card {
@@ -147,7 +148,14 @@ body,
   flex-basis: 1;
   background: #eeeeee !important;
   box-sizing: content-box;
-  height: 100%;
+  max-height: 100%;
+  height: fit-content;
+
+  &.add-lane-card {
+    height: 40px;
+    margin-left: 8px;
+    cursor: pointer;
+  }
 
   & + .lane-card {
     margin-left: 8px;
@@ -165,7 +173,7 @@ body,
   }
 
   .card-container {
-    max-height: 80vh;
+    max-height: 90vh;
     overflow: auto;
   }
 
