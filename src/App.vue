@@ -126,7 +126,7 @@ body,
   overflow: auto;
   padding: 8px;
   box-sizing: border-box;
-  background:  #eeeeee url(http://api.btstu.cn/sjbz/?lx=dongman) no-repeat fixed top;
+  // background:  #eeeeee url(http://api.btstu.cn/sjbz/?lx=dongman) no-repeat fixed top;
 }
 
 * {
