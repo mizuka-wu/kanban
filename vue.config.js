@@ -2,7 +2,14 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       builderOptions: {
-        publish: ['github']
+        publish: [
+          {
+            provider: 'github',
+            owner: 'mizuka-wu',
+            repo: 'kanban',
+            releaseType: 'release'
+          }
+        ]
       },
       nodeIntegration: true
     }
