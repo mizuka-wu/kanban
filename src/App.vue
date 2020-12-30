@@ -47,20 +47,14 @@
     </draggable>
     <div class="control">
       <el-button size="mini" @click="addLane">添加泳道</el-button>
-      <el-select size="mini" v-model="src">
-        <el-option v-for="mp4 of mp4List" :key="mp4" :label="mp4" :value="mp4" />
-      </el-select>
     </div>
     <video :src="src" muted autoplay loop />
   </div>
 </template>
 
 <script>
-import fs from 'fs'
 import { v4 as uuidv4 } from 'uuid'
 import { ipcRenderer } from 'electron'
-
-const mp4List = fs.readdirSync(__static).filter(item => item.includes('.mp4')).map((item) => `media://${item}`)
 
 export default {
   components: {
@@ -69,9 +63,7 @@ export default {
   data () {
     return {
       // 泳道
-      lanes: [],
-      src: mp4List[0],
-      mp4List
+      lanes: []
     }
   },
   methods: {
@@ -126,6 +118,7 @@ body,
 #app {
   height: 100%;
   margin: 0;
+  background: transparent;
 }
 #app {
   overflow: auto;
