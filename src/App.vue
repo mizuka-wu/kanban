@@ -2,7 +2,7 @@
   <div id="app">
     <draggable v-model="lanes">
       <transition-group class="lanes-container" tag="div">
-        <el-card class="lane-card" v-for="lane in lanes" :key="lane.id" shadow="hover" body-style="padding: 6px">
+        <el-card class="lane-card" v-for="lane in lanes" shadow="hover" :key="lane.id" body-style="padding: 6px">
           <div slot="header">
             <div class="lane-name">
               <ClickEdit style="display: inline-block" v-model="lane.name" :options="{ type: 'text' }" />
@@ -29,7 +29,12 @@
                       <el-button type="text" icon="el-icon-delete" @click="deleteCard(lane, card)"></el-button>
                     </div>
                     <div class="time">
-                      {{ card.time }}
+                      <el-popover placement="top-start" width="100" trigger="hover">
+                        <span slot="reference">
+                          {{ card.time || 0 }}
+                        </span>
+                        <el-input-number v-model="card.time" size="mini" :step="1" :min="0" />
+                      </el-popover>
                     </div>
                   </div>
                 </div>
