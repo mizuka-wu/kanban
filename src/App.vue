@@ -48,7 +48,7 @@
     <div class="control">
       <el-button size="mini" @click="addLane">添加泳道</el-button>
     </div>
-    <video :src="src" muted autoplay loop />
+    <video muted autoplay loop />
   </div>
 </template>
 
@@ -119,6 +119,7 @@ body,
   height: 100%;
   margin: 0;
   background: transparent;
+  z-index: -1;
 }
 #app {
   overflow: auto;
@@ -212,6 +213,7 @@ body,
     }
   }
 }
+
 video {
   position: fixed;
   left: 0;
