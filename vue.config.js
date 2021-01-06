@@ -5,7 +5,7 @@ module.exports = {
         mac: {
           target: {
             target: 'dir',
-            arch: 'arm64'
+            arch: ['arm64', 'x64']
           }
         },
         publish: [
