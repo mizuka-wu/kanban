@@ -2,25 +2,9 @@
 
 泳道
 
-## Project setup
-```
-npm install
-```
+这是一个看板小程序，支持添加泳道，卡片，计算工作时长
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+支持mac
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- x64
+- arm64
