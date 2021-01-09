@@ -13,6 +13,7 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 const store = new Store({
+  cwd: app.getPath('userData'),
   name: 'kanban'
 })
 
