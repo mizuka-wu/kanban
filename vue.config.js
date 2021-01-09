@@ -5,19 +5,13 @@ module.exports = {
       builderOptions: {
         appId: 'top.mizuka.kanban',
         artifactName: '${productName}-${version}-${os}-${arch}.${ext}',
-        publish: ['github']
-        // mac: {
-        //   target: [
-        //     {
-        //       arch: 'universal',
-        //       target: 'dmg'
-        //     },
-        //     {
-        //       arch: 'universal',
-        //       target: 'zip'
-        //     }
-        //   ]
-        // }
+        publish: ['github'],
+        mac: {
+          target: {
+            arch: 'universal',
+            target: 'dmg'
+          }
+        }
       },
       nodeIntegration: true
     }
