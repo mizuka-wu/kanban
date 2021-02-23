@@ -5,6 +5,7 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import Store from 'electron-store'
 import { autoUpdater } from 'electron-updater'
+import { icloudDir } from './config'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Scheme must be registered before the app is ready
@@ -13,7 +14,7 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 const store = new Store({
-  cwd: app.getPath('userData'),
+  cwd: icloudDir || app.getPath('userData'),
   name: 'kanban'
 })
 
@@ -80,10 +81,6 @@ app.on('ready', async () => {
       console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  protocol.registerFileProtocol('media', (request, callback) => {
-    const path = request.url.replace('media://', __static + '/')
-    callback(path)
-  })
   createWindow()
 })
 
