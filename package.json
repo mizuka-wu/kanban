@@ -2,6 +2,8 @@
   "name": "kanban",
   "version": "0.4.1",
   "private": true,
+  "author": "mizuka-wu<mizuka.wu@outlook.com>",
+  "description": "一个看板程序",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
