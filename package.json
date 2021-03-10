@@ -1,6 +1,6 @@
 {
   "name": "kanban",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "repository": {
     "type": "git",
     "url": "git@github.com:mizuka-wu/kanban.git"
@@ -53,6 +53,5 @@
     "sass-loader": "~10.1.0",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.5",
     "vue-template-compiler": "~2.6.11"
-  },
-  "__npminstall_done": false
+  }
 }
