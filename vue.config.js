@@ -8,7 +8,8 @@ module.exports = {
         publish: ['github'],
         mac: {
           target: {
-            arch: 'universal'
+            arch: 'universal',
+            target: 'default'
           }
         }
       },
