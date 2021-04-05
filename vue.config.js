@@ -6,7 +6,9 @@ module.exports = {
         appId: 'top.mizuka.kanban',
         artifactName: '${productName}-${version}-${os}-${arch}.${ext}',
         publish: ['github'],
+        afterSign: 'electron-builder-notarize',
         mac: {
+          hardenedRuntime: true,
           target: {
             arch: 'universal',
             target: 'default'
