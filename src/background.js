@@ -41,8 +41,6 @@ async function createWindow () {
     transparent: true,
     hasShadow: false,
     // frame: false,
-    // alwaysOnTop: true,
-
     webPreferences: {
       enableRemoteModule: true,
       // Use pluginOptions.nodeIntegration, leave this alone
