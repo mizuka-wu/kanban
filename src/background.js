@@ -4,6 +4,7 @@ import { app, protocol, BrowserWindow, ipcMain } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import Store from 'electron-store'
+import { injectStore } from 'electron-store-vuex-sync'
 import { autoUpdater } from 'electron-updater'
 import { icloudDir } from './config'
 import log from 'electron-log'
@@ -24,6 +25,8 @@ const store = new Store({
   name: 'kanban',
   watch: true
 })
+
+injectStore(ipcMain, store)
 
 ipcMain.on('getStore', (e, name) => {
   e.returnValue = store.get(name)

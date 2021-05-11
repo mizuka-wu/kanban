@@ -68,18 +68,19 @@
 
 <script>
 import { v4 as uuidv4 } from 'uuid'
-import { ipcRenderer } from 'electron'
 
 // const win = remote.getCurrentWindow()
 
 export default {
-  components: {
-  },
   name: 'App',
-  data () {
-    return {
-      // 泳道
-      lanes: []
+  computed: {
+    lanes: {
+      set (lanes) {
+        this.$emit('set:lanes', lanes)
+      },
+      get () {
+        return this.$store.state.lanes
+      }
     }
   },
   methods: {
@@ -112,18 +113,16 @@ export default {
   },
   watch: {
     lanes: {
+      immediate: true,
       deep: true,
       handler (lanes) {
-        ipcRenderer.send('setStore', {
-          name: 'lanes',
-          value: lanes
-        })
+        if (lanes) {
+          this.lanes = lanes
+        }
       }
     }
   },
   mounted () {
-    const lanes = ipcRenderer.sendSync('getStore', 'lanes') || []
-    this.lanes = lanes
     const el = this.$el
     el.onmouseenter = function () {
       // win.setIgnoreMouseEvents(false)
