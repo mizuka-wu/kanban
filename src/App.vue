@@ -2,10 +2,20 @@
   <div id="app">
     <draggable v-model="lanes">
       <transition-group class="lanes-container" tag="div">
-        <el-card class="lane-card" v-for="lane in lanes" shadow="hover" :key="lane.id" body-style="padding: 6px">
+        <el-card
+          class="lane-card"
+          v-for="lane in lanes"
+          shadow="hover"
+          :key="lane.id"
+          body-style="padding: 6px"
+        >
           <div slot="header">
             <div class="lane-name">
-              <ClickEdit style="display: inline-block" v-model="lane.name" :options="{ type: 'text' }" />
+              <ClickEdit
+                style="display: inline-block"
+                v-model="lane.name"
+                :options="{ type: 'text' }"
+              />
               <span class="lane-card-number">{{ lane.cards.length }}</span>
               <el-button type="text" icon="el-icon-delete" @click="deleteLane(lane)" />
             </div>
@@ -16,7 +26,11 @@
                 <div :key="card.id" v-for="card of lane.cards" class="card">
                   <el-tag size="mini" v-for="tag of card.tags" :key="tag">{{ tag }}</el-tag>
                   <div class="name-container">
-                    <ClickEdit style="display: inline-block" v-model="card.name" :options="{ type: 'text' }" />
+                    <ClickEdit
+                      style="display: inline-block"
+                      v-model="card.name"
+                      :options="{ type: 'text' }"
+                    />
                     <el-popover placement="top-start" title="备注" width="300" trigger="click">
                       <div slot="reference">
                         <div v-html="card.desc || '-'" class="card-desc"></div>
@@ -30,9 +44,7 @@
                     </div>
                     <div class="time">
                       <el-popover placement="top-start" width="100" trigger="hover">
-                        <span slot="reference">
-                          {{ card.time || 0 }}
-                        </span>
+                        <span slot="reference">{{ card.time || 0 }}</span>
                         <el-input-number v-model="card.time" size="mini" :step="1" :min="0" />
                       </el-popover>
                     </div>
@@ -56,7 +68,9 @@
 
 <script>
 import { v4 as uuidv4 } from 'uuid'
-import { ipcRenderer } from 'electron'
+import { ipcRenderer, remote } from 'electron'
+
+const win = remote.getCurrentWindow()
 
 export default {
   components: {
@@ -110,6 +124,13 @@ export default {
   mounted () {
     const lanes = ipcRenderer.sendSync('getStore', 'lanes') || []
     this.lanes = lanes
+    const el = this.$el
+    el.onmouseenter = function () {
+      win.setIgnoreMouseEvents(false)
+    }
+    el.onmouseleave = function () {
+      win.setIgnoreMouseEvents(true)
+    }
   }
 }
 </script>
@@ -132,7 +153,8 @@ body,
 }
 
 * {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .lanes-container {

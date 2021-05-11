@@ -42,11 +42,14 @@ async function createWindow () {
     hasShadow: false,
 
     webPreferences: {
+      enableRemoteModule: true,
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: true
     }
   })
+
+  win.setIgnoreMouseEvents(true)
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
