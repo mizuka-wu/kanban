@@ -77,10 +77,14 @@ export default {
     lanes: {
       set (lanes) {
         this.$emit('set:lanes', lanes)
+        setTimeout(() => {
+          this.$forceUpdate()
+        }, 400)
       },
       get () {
         return this.$store.state.lanes
-      }
+      },
+      deep: true
     }
   },
   methods: {
@@ -108,17 +112,6 @@ export default {
       const index = lane.cards.findIndex(({ id }) => id === card.id)
       if (index > -1) {
         lane.cards.splice(index, 1)
-      }
-    }
-  },
-  watch: {
-    lanes: {
-      immediate: true,
-      deep: true,
-      handler (lanes) {
-        if (lanes) {
-          this.lanes = lanes
-        }
       }
     }
   },

@@ -5,8 +5,10 @@ import { ipcRenderer } from 'electron'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store(getVuexStoreConfig(ipcRenderer), {
+const store = getVuexStoreConfig(ipcRenderer, {
   lanes: {
     type: 'array'
   }
 })
+
+export default new Vuex.Store(store)

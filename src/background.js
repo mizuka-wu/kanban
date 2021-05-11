@@ -28,15 +28,6 @@ const store = new Store({
 
 injectStore(ipcMain, store)
 
-ipcMain.on('getStore', (e, name) => {
-  e.returnValue = store.get(name)
-})
-
-ipcMain.on('setStore', (e, data) => {
-  const { name, value } = data
-  store.set(name, value)
-})
-
 async function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
