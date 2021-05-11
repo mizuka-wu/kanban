@@ -40,6 +40,8 @@ async function createWindow () {
     height: 600,
     transparent: true,
     hasShadow: false,
+    // frame: false,
+    // alwaysOnTop: true,
 
     webPreferences: {
       enableRemoteModule: true,
@@ -48,8 +50,6 @@ async function createWindow () {
       nodeIntegration: true
     }
   })
-
-  win.setIgnoreMouseEvents(true)
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode

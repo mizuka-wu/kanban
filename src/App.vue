@@ -68,9 +68,9 @@
 
 <script>
 import { v4 as uuidv4 } from 'uuid'
-import { ipcRenderer, remote } from 'electron'
+import { ipcRenderer } from 'electron'
 
-const win = remote.getCurrentWindow()
+// const win = remote.getCurrentWindow()
 
 export default {
   components: {
@@ -126,10 +126,10 @@ export default {
     this.lanes = lanes
     const el = this.$el
     el.onmouseenter = function () {
-      win.setIgnoreMouseEvents(false)
+      // win.setIgnoreMouseEvents(false)
     }
     el.onmouseleave = function () {
-      win.setIgnoreMouseEvents(true)
+      // win.setIgnoreMouseEvents(true)
     }
   }
 }
