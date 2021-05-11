@@ -21,7 +21,8 @@ protocol.registerSchemesAsPrivileged([
 
 const store = new Store({
   cwd: icloudDir || app.getPath('userData'),
-  name: 'kanban'
+  name: 'kanban',
+  watch: true
 })
 
 ipcMain.on('getStore', (e, name) => {
